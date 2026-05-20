@@ -104,7 +104,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 STARPAY_API_KEY=your-starpay-api-key
-STARPAY_BASE_URL=https://api.starpay.et
+STARPAY_BASE_URL=https://starpayqa.starpayethiopia.com/v1/starpay-api
 
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
