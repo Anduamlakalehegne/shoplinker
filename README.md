@@ -11,7 +11,7 @@
 
 ## 🚀 Live Demo
 
-[https://eagle-lion-shop.vercel.app](https://eagle-lion-shop.vercel.app)
+[https://shop-linker.vercel.app/](https://shop-linker.vercel.app/)
 
 ---
 
@@ -85,8 +85,8 @@ src/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/your-username/eagle-lion-shop.git
-cd eagle-lion-shop
+git clone https://github.com/Anduamlakalehegne/shoplinker.git
+cd shoplinker
 npm install
 ```
 

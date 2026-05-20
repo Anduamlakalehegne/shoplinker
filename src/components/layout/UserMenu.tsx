@@ -94,7 +94,7 @@ export function UserMenu({ user, onSignOut, onNavigate }: UserMenuProps) {
         aria-haspopup="menu"
         aria-label={`Account menu for ${displayName}`}
         className={cn(
-          'rounded-full p-0.5 transition-all duration-200',
+          'rounded-full p-0.5 transition-all duration-200 cursor-pointer',
           'ring-2 ring-primary/25 ring-offset-2 ring-offset-background',
           'hover:ring-primary/45 focus-visible:outline-none focus-visible:ring-primary/60',
           open && 'ring-primary/55'
@@ -139,7 +139,7 @@ export function UserMenu({ user, onSignOut, onNavigate }: UserMenuProps) {
               type="button"
               role="menuitem"
               onClick={() => setIsSignOutModalOpen(true)}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-destructive transition-colors hover:bg-destructive/10"
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-destructive transition-colors hover:bg-destructive/10 cursor-pointer"
             >
               <LogOut className="h-4 w-4" aria-hidden />
               Sign out

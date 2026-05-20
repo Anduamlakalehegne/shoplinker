@@ -108,7 +108,7 @@ export default function OrdersPage() {
           fetchNextPage();
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: '300px' }
     );
 
     observer.observe(el);
@@ -226,7 +226,7 @@ export default function OrdersPage() {
                     aria-selected={isActive}
                     onClick={() => setStatusFilter(filter.id)}
                     className={cn(
-                      'shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
+                      'shrink-0 cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
                       'border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                       isActive
                         ? 'border-primary bg-primary text-primary-foreground shadow-md shadow-primary/25'
@@ -295,13 +295,27 @@ export default function OrdersPage() {
                   </section>
                 ))}
 
+                {/* In-place skeleton list appended below active groupings when fetching the next page */}
+                {isFetchingNextPage && (
+                  <div className="space-y-4">
+                    <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60 animate-pulse">
+                      Loading next orders...
+                    </h2>
+                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                      {[1, 2].map((i) => (
+                        <Skeleton key={i} className="h-28 rounded-2xl" />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Pagination sentinel — IntersectionObserver target for auto-scroll */}
                 <div ref={loadMoreRef} className="mt-8 flex justify-center pb-8">
                   {isFetchingNextPage ? null : hasNextPage ? (
                     <Button
                       variant="outline"
                       onClick={() => fetchNextPage()}
-                      className="min-w-[200px]"
+                      className="min-w-[160px] gap-2"
                       aria-label="Load more orders"
                     >
                       Load more orders
