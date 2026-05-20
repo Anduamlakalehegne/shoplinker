@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emerald-500: #10B77F;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  /* Typography — set by next/font CSS variables injected on <body> */
+  --font-sans: var(--font-nunito-sans), 'Nunito Sans', system-ui, sans-serif;
+  --font-heading: var(--font-rubik), 'Rubik', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif; /* kept for reference */
+
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 40%;
+
+    --border: 220 13% 88%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --accent: 220 13% 94%;
+    --accent-foreground: 220 13% 13%;
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 9% 65%;
+
+    --border: 220 13% 20%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 55%;
+    --accent: 220 13% 16%;
+    --accent-foreground: 0 0% 98%;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+  }
+
+  /* Heading font — Rubik for premium e-commerce feel */
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.35);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.55);
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(160 55% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .animate-user-menu-in {
+    animation: user-menu-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-user-menu-out {
+    animation: user-menu-out 0.18s cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+}
+
+@keyframes user-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes user-menu-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.375rem) scale(0.96);
+  }
+}
+
+/* ── Accessibility: honour user motion preference ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Product image gallery slide transitions ─────────────────────────── */
+@keyframes img-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes img-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-24px) scale(0.98);
+  }
+}
+
+.animate-img-slide-in {
+  animation: img-slide-in 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-img-slide-out {
+  animation: img-slide-out 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
