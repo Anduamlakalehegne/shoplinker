@@ -288,7 +288,7 @@ This keeps components presentational and makes the data layer fully testable.
 | Sonner over react-hot-toast | react-hot-toast | Better TypeScript support, richer action support, more customizable |
 | CVA for button variants | Inline conditionals | CVA makes variant logic readable, type-safe, and extensible |
 | Feature-based folder structure | Type-based (components/, pages/, utils/) | Scales better; related files live together |
-| Universal Yup for Validation | Zod for API routes | Challenge mandated Formik + Yup for client forms, so we chose to use Yup universally across client & server to avoid fragmented dependencies. |
+| Universal Yup for Validation | Yup for API routes | Challenge mandated Formik + Yup for client forms, so we chose to use Yup universally across client & server to avoid fragmented dependencies. |
 | No password reset / email verification UI | Full auth suite | Out of scope for this challenge; Supabase dashboard covers testing needs |
 | Client cart + catalog reconciliation | Server-persisted cart | Keeps scope smaller while still avoiding stale checkout prices |
 | Orders RLS without user `UPDATE` | Users update orders directly | Payment `payment_ref` / `status` are written only from authenticated Next.js routes using the **service role** with `id` + `user_id` filters — avoids clients spoofing paid status |
